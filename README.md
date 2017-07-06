@@ -1,15 +1,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
  <HEAD>
- <LINK REL="STYLESHEET" TYPE="text/css" HREF="../../plsqldoc.css">
- <TITLE>Package Pk_Big_Blue_Button</TITLE>
+ <LINK REL="STYLESHEET" TYPE="text/css" HREF="css/plsqldoc.css">
  <META name="object" content="PACKAGE">
  <META name="name" content="CEOS.Pk_Big_Blue_Button">
  <META name="description" content="%Autor Vin&#237;cius Vieira de Moura">
 </HEAD>
 <BODY>
 <TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="DESC_TEXT">
-<P CLASS="MAIN_TITLE">Package Pk_Big_Blue_Button</P>
 <BR>
 <A NAME="Autor"></A>
 <TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="LIST_TITLE">
