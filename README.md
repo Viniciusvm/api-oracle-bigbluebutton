@@ -8,13 +8,8 @@
  <META name="description" content="%Autor Vin&#237;cius Vieira de Moura">
 </HEAD>
 <BODY>
-<TABLE WIDTH="100%"><TR>
-<TD><P ALIGN="LEFT"><STRONG><SMALL>CEOS</SMALL></STRONG></TD>
-<TD><P ALIGN="RIGHT"><STRONG><SMALL><A HREF="../../index.html">index</A></SMALL></STRONG></TD>
-</TR></TABLE>
 <TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="DESC_TEXT">
 <P CLASS="MAIN_TITLE">Package Pk_Big_Blue_Button</P>
-
 <BR>
 <A NAME="Autor"></A>
 <TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="LIST_TITLE">
@@ -38,18 +33,18 @@ Criado em
 </TD></TR>
 </TABLE>
 <BR>
-<A NAME="Prop�sito"></A>
+<A NAME="Propósito"></A>
 <TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="LIST_TITLE">
 Propósito
 </TD></TR></TABLE>
 <TABLE CLASS="MAIN_TABLE">
 <TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
 </TD><TD CLASS="DESC_TEXT" WIDTH=95%>
-Package de interface entre a NetAula e a ferramenta de web confer&#234;ncia Big Blue Button.
+Package de geração de chamadas a API do BigBlueButton. 
 </TD></TR>
 </TABLE>
 <BR>
-<A NAME="Informa��o"></A>
+<A NAME="Informação"></A>
 <TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="LIST_TITLE">
 Informação
 </TD></TR></TABLE>
