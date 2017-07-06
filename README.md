@@ -1,7 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
 <HTML>
  <HEAD>
- <LINK REL="STYLESHEET" TYPE="text/css" HREF="css/plsqldoc.css">
  <META name="object" content="PACKAGE">
  <META name="name" content="CEOS.Pk_Big_Blue_Button">
  <META name="description" content="%Autor Vin&#237;cius Vieira de Moura">
@@ -9,46 +8,30 @@
 <BODY>
 <TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="DESC_TEXT">
 <BR>
-<A NAME="Autor"></A>
-<TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="LIST_TITLE">
-Autor
-</TD></TR></TABLE>
 <TABLE CLASS="MAIN_TABLE">
-<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
-</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=10%>
+Autor</TD><TD CLASS="DESC_TEXT" WIDTH=90%>
 Vin&#237;cius Vieira de Moura
 </TD></TR>
 </TABLE>
 <BR>
-<A NAME="Criado em"></A>
-<TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="LIST_TITLE">
-Criado em
-</TD></TR></TABLE>
 <TABLE CLASS="MAIN_TABLE">
-<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
-</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=10%>
+Criado em</TD><TD CLASS="DESC_TEXT" WIDTH=90%>
 20/03/2017 11:14:24
 </TD></TR>
 </TABLE>
 <BR>
-<A NAME="Propósito"></A>
-<TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="LIST_TITLE">
-Propósito
-</TD></TR></TABLE>
 <TABLE CLASS="MAIN_TABLE">
-<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
-</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=10%>
+Propósito</TD><TD CLASS="DESC_TEXT" WIDTH=90%>
 Package de geração de chamadas a API do BigBlueButton. 
 </TD></TR>
 </TABLE>
 <BR>
-<A NAME="Informação"></A>
-<TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="LIST_TITLE">
-Informação
-</TD></TR></TABLE>
 <TABLE CLASS="MAIN_TABLE">
-<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
-</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=10%>Informação
+</TD><TD CLASS="DESC_TEXT" WIDTH=90%>
 Documenta&#231;&#227;o completa da web confer&#234;ncia BigBlueButton <A HREF="http://docs.bigbluebutton.org/dev/api.html">http://docs.bigbluebutton.org/dev/api.html</A>
 </TD></TR>
 </TABLE>
