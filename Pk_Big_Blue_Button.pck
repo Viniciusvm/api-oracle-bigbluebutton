@@ -1,20 +1,20 @@
 CREATE OR REPLACE Package Pk_Big_Blue_Button Authid Current_User Is
-
+ 
 	/**
-    %Autor VinÌcius Vieira de Moura
+    %Autor Vin√≠cius Vieira de Moura
     %Criado 20/03/2017 11:14:24
     %Proposito 
     
-    %Info DocumentaÁ„o completa da web conferÍncia BigBlueButton 
+    %Info Documenta√ß√£o completa da web confer√™ncia BigBlueButton 
     {%link http://docs.bigbluebutton.org/dev/api.html}
   **/
 
 	/**
-  Vari·vel para retorno da funÁ„o de criptografia
+  Vari√°vel para retorno da fun√ß√£o de criptografia
   **/
 	Lv_Hash_Value_Sh1 Raw(4000);
 	/**
-  Vari·vel para retorno da funÁ„o de criptografia, convertida em varchar2
+  Vari√°vel para retorno da fun√ß√£o de criptografia, convertida em varchar2
   **/
 	Lv_Varchar_Key_Sh1 Varchar2(4000);
 
@@ -26,122 +26,122 @@ CREATE OR REPLACE Package Pk_Big_Blue_Button Authid Current_User Is
 	c_Url Constant Varchar2(4000) := 'yoururl';
 
 	/**
-  Chave, encontrada no arquivo properties da instalÁ„o do BBB
+  Chave, encontrada no arquivo properties da instal√ß√£o do BBB
   **/
 	c_Salt Constant Varchar2(4000) := 'your salt';
 
 	/**
-		Senha de administrador e apresentador nas salas de webconferÍncia
+		Senha de administrador e apresentador nas salas de webconfer√™ncia
 	**/
 	v_Senha_Pro Varchar2(4000) := 'adm password'; 
 	/**
-		Senha de participante nas salas de webconferÍncia
+		Senha de participante nas salas de webconfer√™ncia
 	**/
 	v_Senha_Alu Varchar2(4000) := 'user password'; 
 	/**
-   FunÁ„o de convers„o de CLob para XMLtype
-   %param  v_lob - par‚metro de entrada em formato CLOB
-   %return  Xmltype - tipo padr„o do oracle para tratar xml's ,com o conte˙do retornado da API do BBB.
+   Fun√ß√£o de convers√£o de CLob para XMLtype
+   %param  v_lob - par√¢metro de entrada em formato CLOB
+   %return  Xmltype - tipo padr√£o do oracle para tratar xml's ,com o conte√∫do retornado da API do BBB.
   **/
 	Function Clobtoxmltype(v_Lob Clob) Return Xmltype;
 	/**
     Cria sala a partir da URL
-    %param  url - par‚metro de entrada em formato Varchar2 representa a URL de criaÁ„o de uma sala
-    %return  varchar2 {*} Sucesso Sala j· existe! 
+    %param  url - par√¢metro de entrada em formato Varchar2 representa a URL de cria√ß√£o de uma sala
+    %return  varchar2 {*} Sucesso Sala j√° existe! 
                       {*} Sucesso Sala criada com sucesso!
                       {*} Erro Erro ao criar sala! 
   **/
 	Function Createroombyurl(Url Varchar2) Return Varchar2;
 	/**
     Verifica se a sala ja foi criada
-    %param  Meetingid - ID da sala de web conferÍncia em formato Varchar2
-    %return  boolean {*} True - Sala j· foi criada
-                     {*} False -Sala n„o foi criada
+    %param  Meetingid - ID da sala de web confer√™ncia em formato Varchar2
+    %return  boolean {*} True - Sala j√° foi criada
+                     {*} False -Sala n√£o foi criada
   
   **/
 	Function Ismeetingcreated(Meetingid Varchar2) Return Boolean;
 	/**
-  Faz uma requisiÁ„o para a URL passada e devolve um CLOB do reponse
-  %param  url - par‚metro de entrada em formato Varchar2 representa uma URL qualquer
-  %return Clob - todo o conte˙do da p·gina chamada.
+  Faz uma requisi√ß√£o para a URL passada e devolve um CLOB do reponse
+  %param  url - par√¢metro de entrada em formato Varchar2 representa uma URL qualquer
+  %return Clob - todo o conte√∫do da p√°gina chamada.
   **/
 	Function Callurl(Url Varchar2) Return Clob;
 	/**
-  Gera URL de acesso para um determinado usu·rio em uma sala especÌfica
+  Gera URL de acesso para um determinado usu√°rio em uma sala espec√≠fica
   
-  %param  Nomeusuario - Nome do usu·rio que ingressar· na sala em formato Varchar2
-  %param  Meetingid - ID da sala de web conferÍncia em formato Varchar2
-  %param Senha - Senha do usu·rio em formato Varchar2, deve bater com o valor de uma das vari·veis
+  %param  Nomeusuario - Nome do usu√°rio que ingressar√° na sala em formato Varchar2
+  %param  Meetingid - ID da sala de web confer√™ncia em formato Varchar2
+  %param Senha - Senha do usu√°rio em formato Varchar2, deve bater com o valor de uma das vari√°veis
                       {*}v_Senha_Pro - para ingressar com responsabilidade de apresentador
                       {*}v_Senha_Alu - para ingressar com responsabilidade de participante
                       
-  %param Parametrosadicionais - par‚metros adicionais possÌveis, conforme documentaÁ„o da API
+  %param Parametrosadicionais - par√¢metros adicionais poss√≠veis, conforme documenta√ß√£o da API
   %return Varchar2 - URL para ingresso na sala.
   **/
 	Function Join(Nomeusuario Varchar2, Meetingid Varchar2, Senha Varchar2, Parametrosadicionais Varchar2 Default '')
 		Return Varchar2;
 	/**
   Gera URL para criar a sala
-	  %param Meetingid - ID da sala de web conferÍncia em formato Varchar2
-		%param Parametrosadicionais - par‚metros adicionais possÌveis, conforme documentaÁ„o da API
-		%return Varchar2 - URL para criaÁ„o da sala.
+	  %param Meetingid - ID da sala de web confer√™ncia em formato Varchar2
+		%param Parametrosadicionais - par√¢metros adicionais poss√≠veis, conforme documenta√ß√£o da API
+		%return Varchar2 - URL para cria√ß√£o da sala.
   **/
 	Function Creates(Meetingid Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2 Deterministic;
 	/**
   Gera URL para encerramento da sala
-	  %param Meetingid - ID da sala de web conferÍncia em formato Varchar2
-		%param Senhaadm - senha de apresentador da sala, deve bater com o valor da vari·vel v_Senha_Pro
-		%param Parametrosadicionais - par‚metros adicionais possÌveis, conforme documentaÁ„o da API
+	  %param Meetingid - ID da sala de web confer√™ncia em formato Varchar2
+		%param Senhaadm - senha de apresentador da sala, deve bater com o valor da vari√°vel v_Senha_Pro
+		%param Parametrosadicionais - par√¢metros adicionais poss√≠veis, conforme documenta√ß√£o da API
 		%return Varchar2 - URL para encerramento da sala.
   **/
 	Function Close(Meetingid Varchar2, Senhaadm Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2 Deterministic;
 	/**
-  Gera URL para testar se a sala est· "no ar"
-	%param Meetingid - ID da sala de web conferÍncia em formato Varchar2
-	%param Senhaadm - senha de apresentador da sala, deve bater com o valor da vari·vel v_Senha_Pro
-	%param Parametrosadicionais - par‚metros adicionais possÌveis, conforme documentaÁ„o da API
-	%return Varchar2 - URL para testar se a sala est· "no ar"
+  Gera URL para testar se a sala est√° "no ar"
+	%param Meetingid - ID da sala de web confer√™ncia em formato Varchar2
+	%param Senhaadm - senha de apresentador da sala, deve bater com o valor da vari√°vel v_Senha_Pro
+	%param Parametrosadicionais - par√¢metros adicionais poss√≠veis, conforme documenta√ß√£o da API
+	%return Varchar2 - URL para testar se a sala est√° "no ar"
   **/
 	Function Ismeetingruning(Meetingid Varchar2, Senhaadm Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2;
 	/**
-  Gera URL que retorna as informaÁıes da sala
-	%param Meetingid - ID da sala de web conferÍncia em formato Varchar2
-	%param Senhaadm - senha de apresentador da sala, deve bater com o valor da vari·vel v_Senha_Pro
-	%param Parametrosadicionais - par‚metros adicionais possÌveis, conforme documentaÁ„o da API
-	%return Varchar2 - URL que retorna as informaÁıes da sala
+  Gera URL que retorna as informa√ß√µes da sala
+	%param Meetingid - ID da sala de web confer√™ncia em formato Varchar2
+	%param Senhaadm - senha de apresentador da sala, deve bater com o valor da vari√°vel v_Senha_Pro
+	%param Parametrosadicionais - par√¢metros adicionais poss√≠veis, conforme documenta√ß√£o da API
+	%return Varchar2 - URL que retorna as informa√ß√µes da sala
   **/
 	Function Getmeetinginfo(Meetingid Varchar2, Senhaadm Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2;
 	/**
-  Gera URL para solicitar gravaÁıes(vÌdeos) da sala
-	%param Meetingid - ID da sala de web conferÍncia em formato Varchar2
-	%param Senhaadm - senha de apresentador da sala, deve bater com o valor da vari·vel v_Senha_Pro
-	%param Parametrosadicionais - par‚metros adicionais possÌveis, conforme documentaÁ„o da API
-	%return Varchar2 - URL para solicitar as gravaÁıes da sala
+  Gera URL para solicitar grava√ß√µes(v√≠deos) da sala
+	%param Meetingid - ID da sala de web confer√™ncia em formato Varchar2
+	%param Senhaadm - senha de apresentador da sala, deve bater com o valor da vari√°vel v_Senha_Pro
+	%param Parametrosadicionais - par√¢metros adicionais poss√≠veis, conforme documenta√ß√£o da API
+	%return Varchar2 - URL para solicitar as grava√ß√µes da sala
   **/
 	Function Getrecordings(Meetingid Varchar2, Senhaadm Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2;
 	/**
-  Gera URL para solicitar publicaÁ„o dos vÌdeos da sala
-	%param Meetingid - ID da sala de web conferÍncia em formato Varchar2
-	%param Senhaadm - senha de apresentador da sala, deve bater com o valor da vari·vel v_Senha_Pro
-	%param Parametrosadicionais - par‚metros adicionais possÌveis, conforme documentaÁ„o da API
-	%return Varchar2 - URL para solicitar publicaÁ„o dos vÌdeos da sala
+  Gera URL para solicitar publica√ß√£o dos v√≠deos da sala
+	%param Meetingid - ID da sala de web confer√™ncia em formato Varchar2
+	%param Senhaadm - senha de apresentador da sala, deve bater com o valor da vari√°vel v_Senha_Pro
+	%param Parametrosadicionais - par√¢metros adicionais poss√≠veis, conforme documenta√ß√£o da API
+	%return Varchar2 - URL para solicitar publica√ß√£o dos v√≠deos da sala
   **/
 	Function Publishrecordings(Meetingid Varchar2, Senhaadm Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2;
 	/**
-  Gera URL para apagar os vÌdeos da sala
-	%param Meetingid - ID da sala de web conferÍncia em formato Varchar2
-	%param Senhaadm - senha de apresentador da sala, deve bater com o valor da vari·vel v_Senha_Pro
-	%param Parametrosadicionais - par‚metros adicionais possÌveis, conforme documentaÁ„o da API
-	%return Varchar2 - URL para apagar os vÌdeos da sala
+  Gera URL para apagar os v√≠deos da sala
+	%param Meetingid - ID da sala de web confer√™ncia em formato Varchar2
+	%param Senhaadm - senha de apresentador da sala, deve bater com o valor da vari√°vel v_Senha_Pro
+	%param Parametrosadicionais - par√¢metros adicionais poss√≠veis, conforme documenta√ß√£o da API
+	%return Varchar2 - URL para apagar os v√≠deos da sala
   **/
 	Function Deleterecordings(Meetingid Varchar2, Senhaadm Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2;
 	/**
-  Gera URL que retorna as salas que est„o "no ar"
+  Gera URL que retorna as salas que est√£o "no ar"
   **/
 	Function Getmeetings Return Varchar2;
 	/**
-  Gera URL que retorna as configuraÁıes padr„o da Web ConferÍncia
-	%return Varchar2 - URL para apagar os vÌdeos da sala
+  Gera URL que retorna as configura√ß√µes padr√£o da Web Confer√™ncia
+	%return Varchar2 - URL para apagar os v√≠deos da sala
   **/
 	/*
 	Function Getdefaultconfigxml Return Varchar2;
@@ -155,11 +155,11 @@ End Pk_Big_Blue_Button;
 CREATE OR REPLACE Package Body Pk_Big_Blue_Button Is
 
 	Procedure Generatehash(Method Varchar2, Query Varchar2) Is
-		/*Vari·veis para geraÁ„o do HASH*/
+		/*Vari√°veis para gera√ß√£o do HASH*/
 		v_String Varchar2(4000);
 	
 	Begin
-		/*Concatena as vari·veis na ordem correta de geraÁ„o da chave*/
+		/*Concatena as vari√°veis na ordem correta de gera√ß√£o da chave*/
 		v_String := Method || Query || c_Salt;
 	
 		/*Gera chave criptografada (SH-1)*/
@@ -171,7 +171,7 @@ CREATE OR REPLACE Package Body Pk_Big_Blue_Button Is
 		From   Dual;
 	End;
 
-	/*Faz uma requisiÁ„o para a URL passada e devolve um CLOB do reponse*/
+	/*Faz uma requisi√ß√£o para a URL passada e devolve um CLOB do reponse*/
 	Function Callurl(Url Varchar2) Return Clob Is
 		t_Part Utl_Http.Html_Pieces;
 		v_Ret  Clob;
@@ -209,7 +209,7 @@ CREATE OR REPLACE Package Body Pk_Big_Blue_Button Is
 	
 		If (v_Code = 'SUCCESS') Then
 			If (v_Message Is Not Null) Then
-				v_Ret := 'Sala j· existe! ';
+				v_Ret := 'Sala j√° existe! ';
 			Else
 				v_Ret := 'Sala criada com sucesso! ';
 			End If;
@@ -243,15 +243,15 @@ CREATE OR REPLACE Package Body Pk_Big_Blue_Button Is
 		Return False;
 	End Ismeetingcreated;
 
-	/*Gera URL de acesso para um determinado usu·rio em uma sala especÌfica*/
+	/*Gera URL de acesso para um determinado usu√°rio em uma sala espec√≠fica*/
 	Function Join(Nomeusuario Varchar2, Meetingid Varchar2, Senha Varchar2, Parametrosadicionais Varchar2 Default '')
 		Return Varchar2 Is
-		/*MÈtodo (Ex: create,join,end, etc...)*/
+		/*M√©todo (Ex: create,join,end, etc...)*/
 		v_Method Varchar2(40) := 'join';
 		v_Query  Varchar2(4000);
 	
 	Begin
-		/*Monta query com par‚metros obrigatÛrios para acesso a sala*/
+		/*Monta query com par√¢metros obrigat√≥rios para acesso a sala*/
 		v_Query := 'fullName=' || Nomeusuario || '&meetingID=' || Meetingid || '&password=' || Senha || Parametrosadicionais;
 		Generatehash(v_Method, v_Query);
 	
@@ -260,12 +260,12 @@ CREATE OR REPLACE Package Body Pk_Big_Blue_Button Is
 
 	/*Gera URL para criar a sala*/
 	Function Creates(Meetingid Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2 Deterministic Is
-		/*MÈtodo (Ex: create,join,end, etc...)*/
+		/*M√©todo (Ex: create,join,end, etc...)*/
 		v_Method Varchar2(40) := 'create';
 		v_Query  Varchar2(4000);
 	
 	Begin
-		/*Monta query com par‚metros obrigatÛrios para criar a sala*/
+		/*Monta query com par√¢metros obrigat√≥rios para criar a sala*/
 		v_Query := 'attendeePW=' || v_Senha_Alu || '&meetingID=' || Meetingid || '&moderatorPW=' || v_Senha_Pro ||
 							 Parametrosadicionais;
 		Generatehash(v_Method, v_Query);
@@ -275,91 +275,91 @@ CREATE OR REPLACE Package Body Pk_Big_Blue_Button Is
 
 	/*Gera URL para encerramento da sala*/
 	Function Close(Meetingid Varchar2, Senhaadm Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2 Deterministic Is
-		/*MÈtodo (Ex: create,join,end, etc...)*/
+		/*M√©todo (Ex: create,join,end, etc...)*/
 		v_Method Varchar2(40) := 'end';
 		v_Query  Varchar2(4000);
 	
 	Begin
-		/*Monta query com par‚metros obrigatÛrios para encerrar a sala*/
+		/*Monta query com par√¢metros obrigat√≥rios para encerrar a sala*/
 		v_Query := 'meetingID=' || Meetingid || '&password=' || Senhaadm || Parametrosadicionais;
 		Generatehash(v_Method, v_Query);
 	
 		Return c_Url || v_Method || '?' || v_Query || '&checksum=' || Lv_Varchar_Key_Sh1;
 	End;
 
-	/*Gera URL para testar se a sala est· "no ar"*/
+	/*Gera URL para testar se a sala est√° "no ar"*/
 	Function Ismeetingruning(Meetingid Varchar2, Senhaadm Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2 Is
-		/*MÈtodo (Ex: create,join,end, etc...)*/
+		/*M√©todo (Ex: create,join,end, etc...)*/
 		v_Method Varchar2(40) := 'isMeetingRunning';
 		v_Query  Varchar2(4000);
 	
 	Begin
-		/*Monta query com par‚metros obrigatÛrios para testar se a sala est· no ar*/
+		/*Monta query com par√¢metros obrigat√≥rios para testar se a sala est√° no ar*/
 		v_Query := 'meetingID=' || Meetingid || '&password=' || Senhaadm || Parametrosadicionais;
 		Generatehash(v_Method, v_Query);
 	
 		Return c_Url || v_Method || '?' || v_Query || '&checksum=' || Lv_Varchar_Key_Sh1;
 	End;
 
-	/*Gera URL que retorna as informaÁıes da sala*/
+	/*Gera URL que retorna as informa√ß√µes da sala*/
 	Function Getmeetinginfo(Meetingid Varchar2, Senhaadm Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2 Is
-		/*MÈtodo (Ex: create,join,end, etc...)*/
+		/*M√©todo (Ex: create,join,end, etc...)*/
 		v_Method Varchar2(40) := 'getMeetingInfo';
 		v_Query  Varchar2(4000);
 	
 	Begin
-		/*Monta query com par‚metros obrigatÛrios para verificar as informaÁıes da sala*/
+		/*Monta query com par√¢metros obrigat√≥rios para verificar as informa√ß√µes da sala*/
 		v_Query := 'meetingID=' || Meetingid || '&password=' || Senhaadm || Parametrosadicionais;
 		Generatehash(v_Method, v_Query);
 	
 		Return c_Url || v_Method || '?' || v_Query || '&checksum=' || Lv_Varchar_Key_Sh1;
 	End;
 
-	/*Gera URL para solicitar gravaÁıes(vÌdeos) da sala*/
+	/*Gera URL para solicitar grava√ß√µes(v√≠deos) da sala*/
 	Function Getrecordings(Meetingid Varchar2, Senhaadm Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2 Is
-		/*MÈtodo (Ex: create,join,end, etc...)*/
+		/*M√©todo (Ex: create,join,end, etc...)*/
 		v_Method Varchar2(40) := 'getRecordings';
 		v_Query  Varchar2(4000);
 	
 	Begin
-		/*Monta query com par‚metros obrigatÛrios para solicitar as gravaÁıes*/
+		/*Monta query com par√¢metros obrigat√≥rios para solicitar as grava√ß√µes*/
 		v_Query := 'meetingID=' || Meetingid || '&password=' || Senhaadm || Parametrosadicionais;
 		Generatehash(v_Method, v_Query);
 	
 		Return c_Url || v_Method || '?' || v_Query || '&checksum=' || Lv_Varchar_Key_Sh1;
 	End;
 
-	/*Gera URL para solicitar publicaÁ„o dos vÌdeos da sala*/
+	/*Gera URL para solicitar publica√ß√£o dos v√≠deos da sala*/
 	Function Publishrecordings(Meetingid Varchar2, Senhaadm Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2 Is
-		/*MÈtodo (Ex: create,join,end, etc...)*/
+		/*M√©todo (Ex: create,join,end, etc...)*/
 		v_Method Varchar2(40) := 'publishRecordings';
 		v_Query  Varchar2(4000);
 	
 	Begin
-		/*Monta query com par‚metros obrigatÛrios para solicitar as gravaÁıes*/
+		/*Monta query com par√¢metros obrigat√≥rios para solicitar as grava√ß√µes*/
 		v_Query := 'meetingID=' || Meetingid || '&password=' || Senhaadm || Parametrosadicionais;
 		Generatehash(v_Method, v_Query);
 	
 		Return c_Url || v_Method || '?' || v_Query || '&checksum=' || Lv_Varchar_Key_Sh1;
 	End;
 
-	/*Gera URL para apagar os vÌdeos da sala*/
+	/*Gera URL para apagar os v√≠deos da sala*/
 	Function Deleterecordings(Meetingid Varchar2, Senhaadm Varchar2, Parametrosadicionais Varchar2 Default '') Return Varchar2 Is
-		/*MÈtodo (Ex: create,join,end, etc...)*/
+		/*M√©todo (Ex: create,join,end, etc...)*/
 		v_Method Varchar2(40) := 'deleteRecordings';
 		v_Query  Varchar2(4000);
 	
 	Begin
-		/*Monta query com par‚metros obrigatÛrios para solicitar as gravaÁıes*/
+		/*Monta query com par√¢metros obrigat√≥rios para solicitar as grava√ß√µes*/
 		v_Query := 'meetingID=' || Meetingid || '&password=' || Senhaadm || Parametrosadicionais;
 		Generatehash(v_Method, v_Query);
 	
 		Return c_Url || v_Method || '?' || v_Query || '&checksum=' || Lv_Varchar_Key_Sh1;
 	End;
 
-	/*Gera URL que retorna as salas que est„o "no ar"*/
+	/*Gera URL que retorna as salas que est√£o "no ar"*/
 	Function Getmeetings Return Varchar2 Is
-		/*MÈtodo (Ex: create,join,end, etc...)*/
+		/*M√©todo (Ex: create,join,end, etc...)*/
 		v_Method Varchar2(40) := 'getMeetings';
 		v_Query  Varchar2(4000);
 	Begin
@@ -368,9 +368,9 @@ CREATE OR REPLACE Package Body Pk_Big_Blue_Button Is
 		Return c_Url || v_Method || '?' || v_Query || 'checksum=' || Lv_Varchar_Key_Sh1;
 	End;
 
-	/*Gera URL que retorna as configuraÁıes padr„o da Web ConferÍncia*/
+	/*Gera URL que retorna as configura√ß√µes padr√£o da Web Confer√™ncia*/
 	Function Getdefaultconfigxml Return Varchar2 Is
-		/*MÈtodo (Ex: create,join,end, etc...)*/
+		/*M√©todo (Ex: create,join,end, etc...)*/
 		v_Method Varchar2(40) := 'getDefaultConfigXML';
 		v_Query  Varchar2(4000);
 	Begin
