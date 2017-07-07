@@ -1,12 +1,12 @@
 /*Criar e fechar sala de web conferência */
 Declare
-	/*Define o identificado da conferencia, pode ser o melhor convir*/
+	/*Define o identificador da conferência*/
 	v_id_conferencia Varchar2(1000) := 'IDdaConferencia';
 	
-	/*variavel para guardar o retorno da chamada da funcao de criar sala*/
+	/*Variável para guardar o retorno da chamada da funcao de criar sala*/
 	v_url_criacao Varchar2(1000);
 
-	/*variavel para guardar o retorno da chamada da funcao de fechamento da sala*/
+	/*Variável para guardar o retorno da chamada da funcao de fechamento da sala*/
 	v_url_fechamento Varchar2(1000);
 
 Begin
