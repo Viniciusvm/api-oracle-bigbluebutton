@@ -7,8 +7,12 @@
 </HEAD>
 <BODY>
 <h1>Instalação</h1>
-<p>Para complilar a package Pk_Big_Blue_Button.sql é necessário rodar o seguinte grant, utilizando o usuário SYS do banco.</p>
-<p>grant execute on sys.dbms_crypto to myuser;<p>
+<p>Executar os scripts na seguinte ordem, para completar a instalação:</p>
+<ol>
+  <li>grants.sql</li>
+  <li>pk_big_blue_button.sql</li>
+</ol>
+
 <hr>
 <h1>Documentação</h1>
 <TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="DESC_TEXT">
