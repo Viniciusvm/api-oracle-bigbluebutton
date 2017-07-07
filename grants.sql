@@ -1,0 +1,1 @@
+grant execute on sys.dbms_crypto to myuser;
