@@ -13,6 +13,10 @@
   <li>pk_big_blue_button.sql</li>
 </ol>
 
+<p>OBS: o arquivo grants.sql deve ser executado com o usuário SYS do banco de dados 
+substituindo o 'myuser' pelo usuário em que a pk_big_blue_button será compilado.
+</p>
+
 <hr>
 <h1>Documentação</h1>
 <TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="DESC_TEXT">
