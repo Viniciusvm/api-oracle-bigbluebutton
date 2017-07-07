@@ -6,6 +6,11 @@
  <META name="description" content="%Autor Vin&#237;cius Vieira de Moura">
 </HEAD>
 <BODY>
+<h1>Instalação</h1>
+<p>Para complilar a package Pk_Big_Blue_Button.sql é necessário rodar o seguinte grant, utilizando o usuário SYS do banco.</p>
+<p>grant execute on sys.dbms_crypto to myuser;<p>
+<hr>
+<h1>Documentação</h1>
 <TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="DESC_TEXT">
 <BR>
 <TABLE CLASS="MAIN_TABLE">
